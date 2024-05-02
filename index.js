@@ -53,7 +53,44 @@ main.addEventListener("mousemove", function (dets) {
     ease: "back.out",
   });
 });
-init();
+// init();
+
+function breakTheText() {
+  var hh2 = document.querySelector(".heading h2");
+  var h1Text = document.querySelector(".heading h2").textContent;
+  var splittedText = h1Text.split("");
+  var clutter = "";
+  splittedText.forEach(function (elem) {
+    clutter += `<span>${elem}</span>`;
+  });
+  hh2.innerHTML = clutter;
+}
+breakTheText();
+
+function breakTheText2() {
+  var hh2 = document.querySelector(".heading h3");
+  var h1Text = document.querySelector(".heading h3").textContent;
+  var splittedText = h1Text.split("");
+  var clutter = "";
+  splittedText.forEach(function (elem) {
+    clutter += `<span>${elem}</span>`;
+  });
+  hh2.innerHTML = clutter;
+}
+function breakTheText3() {
+  var hh2 = document.querySelector(".heading  #auto");
+  var h1Text = document.querySelector(".heading  #auto").textContent;
+  var splittedText = h1Text.split("");
+  var clutter = "";
+  splittedText.forEach(function (elem) {
+    clutter += `<span>${elem}</span>`;
+  });
+  hh2.innerHTML = clutter;
+  console.log(hh2);
+}
+breakTheText2();
+
+breakTheText3();
 
 var t1 = gsap.timeline();
 var t2 = gsap.timeline();
@@ -84,19 +121,19 @@ gsap.from(".moblie-nav-icon", {
   duration: 0.5,
   stagger: 0.3,
 });
-t2.from(".heading h2", {
-  delay: 1,
-  y: 30,
+t2.from(".heading h2 span", {
+  delay: 0.5,
+  y: 100,
   opacity: 0,
   duration: 1,
-  stagger: 0.3,
+  stagger: 0.1,
 });
-t2.from(".heading h3", {
-  delay: -0.3,
-  y: 30,
+t2.from(".heading h3 span", {
+  y: 100,
+  delay: -1,
   opacity: 0,
   duration: 1,
-  stagger: 0.3,
+  stagger: 0.1,
 });
 t2.from(".page2 h1", {
   delay: -0.5,
@@ -145,10 +182,29 @@ function ani() {
   });
 }
 
-gsap.from(".page2 .animatee", {
-  y: -30,
-  delay: 2,
+function breakTheText4() {
+  var hh2 = document.querySelector(".page2 .animatee");
+  var h1Text = document.querySelector(".page2 .animatee").textContent;
+  var splittedText = h1Text.split("");
+  var clutter = "";
+  splittedText.forEach(function (elem) {
+    clutter += `<span>${elem}</span>`;
+  });
+  hh2.innerHTML = clutter;
+}
+breakTheText4();
+gsap.from(".page2 .animatee span", {
+  x: -100,
+  delay: 1,
   opacity: 0,
-  duration: 2.2,
+  duration: 3,
   stagger: 0.6,
+  scrollTrigger: {
+    trigger: ".page2 .animatee",
+    scroller: "body",
+
+    start: "top 70%",
+    end: "top 50",
+    scrub: 3,
+  },
 });
